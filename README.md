@@ -1,4 +1,4 @@
-#Weapon Mod 1.0.0
+#Weapon Mod 1.0.1
 
 This addon lets players remove weapon mods from their weapons and apply them to other weapons. 
 
@@ -30,6 +30,7 @@ For an example, check out this [video on twitch.tv](http://www.twitch.tv/mudzere
 
 version|change
 -------|-------
+1.0.1  | bug fix for attachment removal
 1.0.0  | first release 
 
 -----

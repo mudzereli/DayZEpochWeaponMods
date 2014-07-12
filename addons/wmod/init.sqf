@@ -1,6 +1,7 @@
 if(isServer) exitWith {};
-
-diag_log text "WMOD: loading...";
+private["_version"];
+_version = "1.0.1";
+diag_log text format["WMOD v%1: loading...",_version];
 call compile preprocessFileLineNumbers "addons\wmod\config.sqf";
 call compile preprocessFileLineNumbers "addons\wmod\functions.sqf";
 call compile preprocessFileLineNumbers "overwrites\click_actions\init.sqf";

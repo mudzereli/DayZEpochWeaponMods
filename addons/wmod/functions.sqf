@@ -13,7 +13,7 @@ fnc_wmod_weapon_mod = {
 
     call fnc_wmod_closeGearDisplay;
 
-    if (call fnc_wmod_performAction && {_mod call fnc_wmod_hasWeaponModInventory}) then {
+    if (call fnc_wmod_performAction && {(!_upg || _mod call fnc_wmod_hasWeaponModInventory)}) then {
         _selected = ((currentWeapon player) == _old);
         player removeWeapon _old;
         player addWeapon _new;
