@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DayZ Epoch Weapon Mods by mudzereli</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>DayZ Epoch Weapon Mods</h1>
+        <p>the weapon mod mod</p>
+
+        <p class="view"><a href="https://github.com/mudzereli/DayZEpochWeaponMods">View the Project on GitHub <small>mudzereli/DayZEpochWeaponMods</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mudzereli/DayZEpochWeaponMods/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mudzereli/DayZEpochWeaponMods/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mudzereli/DayZEpochWeaponMods">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="weapon-mod-110" class="anchor" href="#weapon-mod-110"><span class="octicon octicon-link"></span></a>Weapon Mod 1.1.0</h1>
+
+<p>This addon lets players remove weapon mods from their weapons and apply them to other weapons. </p>
+
+<p>For example, you can take an ACOG scope off of an M4A1 and put it on a SA58, or add Gold Paint to a revolver, etc.</p>
+
+<p>If you want to see some visual footage, check out this <a href="http://imgur.com/a/BmyqK" title="imgur gallery">imgur gallery</a> or this <a href="http://www.twitch.tv/mudzereli/c/4656501" title="video">video on twitch.tv</a>:</p>
+
+<hr><h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features:</h2>
+
+<ul>
+<li>configurable so you set your own combinations</li>
+<li>easy to use, just right click and remove or add the part</li>
+<li>admin list for adding modifications without the item</li>
+</ul><p><strong>note</strong>: Due to the way saving data works, unattached weapon modifications do not save across server restarts, so the player must attach the part to a weapon again before it will save. Players are notified of this whenever they remove a modification from a weapon or whenever they have their weapon mod inventory open.</p>
+
+<hr><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li><a href="https://github.com/mudzereli/DayZEpochWeaponMods/archive/master.zip" title="download files">download the files</a></li>
+<li>extract the <strong>addons</strong> and <strong>overwrites</strong> folder from the downloaded zip file into your <strong>mission file root</strong>
+</li>
+<li>add this line to the end of your mission file init.sqf.
+
+<ul>
+<li><code>call compile preprocessFileLineNumbers "addons\wmod\init.sqf";</code></li>
+</ul>
+</li>
+<li>edit <strong>addons\wmod\config.sqf</strong> to configure some options such as what guns it works with etc.</li>
+</ol><hr><h2>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>To edit the configuration options, open <strong>addons\wmod\conifg.sqf</strong></p>
+
+<p>Some of the more complex configuration options are shown below (others are in the config.sqf)</p>
+
+<p><strong>DZE_WEAPON_MODS FORMAT</strong></p>
+
+<pre><code>DZE_WEAPON_MODS = [
+     [_attachment,_base,_upgrade],
+     [_attachment,_base,_upgrade],
+     [... more info here ...]
+];
+</code></pre>
+
+<table>
+<thead><tr>
+<th>parameter</th>
+<th>description</th>
+<th>type</th>
+<th>example</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>_attachment</td>
+<td>the name of the weapon attachment</td>
+<td>string</td>
+<td>"GP25 GL"</td>
+</tr>
+<tr>
+<td>_base</td>
+<td>the classname that the attachment is put on to</td>
+<td>string</td>
+<td>"AK_74"</td>
+</tr>
+<tr>
+<td>_upgrade</td>
+<td>the classname the item becomes after the attachment is put on</td>
+<td>string</td>
+<td>"AK_74_GL"</td>
+</tr>
+</tbody>
+</table><p><strong>DZE_WEAPON_MOD_COMBINE FORMAT</strong></p>
+
+<pre><code>DZE_WEAPON_MOD_COMBINE = [
+    [_combined,_attachments],
+    [_combined,_attachments],
+    [... more info here ...]
+];
+</code></pre>
+
+<table>
+<thead><tr>
+<th>parameter</th>
+<th>description</th>
+<th>type</th>
+<th>example</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>_combined</td>
+<td>the name of the attachment to combine the other attachments into</td>
+<td>string</td>
+<td>"CCO Sight"</td>
+</tr>
+<tr>
+<td>_attachments</td>
+<td>array of attachments to combine into the combined attachment</td>
+<td>array</td>
+<td>["Kobra Sight"]</td>
+</tr>
+</tbody>
+</table><hr><h2>
+<a name="change-log" class="anchor" href="#change-log"><span class="octicon octicon-link"></span></a>Change Log</h2>
+
+<table>
+<thead><tr>
+<th>version</th>
+<th>change</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1.1.0</td>
+<td>unused mods now persist after logout (but not server restart) <br> better inventory management system <br> more configurable options</td>
+</tr>
+<tr>
+<td>1.0.1</td>
+<td>bug fix for attachment removal</td>
+</tr>
+<tr>
+<td>1.0.0</td>
+<td>first release</td>
+</tr>
+</tbody>
+</table>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mudzereli">mudzereli</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
