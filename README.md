@@ -66,6 +66,16 @@ _attachments  | array of attachments to combine into the combined attachment    
 
 -----
 
+##Issues/FAQ
+
+**Users get kicked for publicvariable restriction #0**
+
+1. find your battleye filter directory
+2. open publicvariable.txt
+3. the first line should say 5 "" (... other stuff ...)
+4. change it to 5 "" !"DZE_WMOD_INVENTORY" (... other stuff ...)
+
+-----
 ##Change Log
 
 version|change
